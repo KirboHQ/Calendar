@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-int writeCalendar(){																					// The function to output the calendar
+int writeCalendar(){
 	
 	int monthDays, firstMonthWday, update = 1;
 	
 	time_t rawtime = time(NULL);
 	struct tm *pt = localtime(&rawtime);
 	
-	switch (pt->tm_wday) {																				// A switch to write the current day of the week
+	switch (pt->tm_wday) {						// A switch to write the current day of the week
 		
 		case 0:
 			printf ("Sunday");
@@ -34,9 +34,9 @@ int writeCalendar(){																					// The function to output the calendar
 		break;
 	}
 	
-	printf (" %02d ", pt->tm_mday);																		// Outputting the current month day
+	printf (" %02d ", pt->tm_mday);					// Outputting the current month day
 	
-	switch (pt->tm_mon + 1) {																			// A switch to write the current month and to save how many days there are in that month
+	switch (pt->tm_mon + 1) {					// A switch to write the current month and to save how many days there are in that month
 		case 1:
 			printf ("January");
 			monthDays = 31;
@@ -96,8 +96,6 @@ int writeCalendar(){																					// The function to output the calendar
 	
 	printf (" %d\n\nSund  Mond  Tues  Wedn  Thur  Frid  Satu\n", pt->tm_year + 1900);	// Outputting the current year
 	
-	
-	
 	firstMonthWday = pt->tm_wday;
 		
 	for (int i = pt->tm_mday; i > 1; i--) {
@@ -113,7 +111,7 @@ int writeCalendar(){																					// The function to output the calendar
 	
 	int currentWday = 0;
 	
-	for (int i = 1; i <= monthDays; i++) {																// Outputting the calendar
+	for (int i = 1; i <= monthDays; i++) {							// Outputting the calendar
 		
 		if (i == 1 && currentWday != firstMonthWday) {
 			
